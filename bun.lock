@@ -5,6 +5,7 @@
       "name": "motion-projects",
       "dependencies": {
         "@t3-oss/env-nextjs": "^0.12.0",
+        "motion": "^12.19.1",
         "next": "^15.2.3",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
@@ -12,6 +13,8 @@
       },
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
+        "@stagewise-plugins/react": "^0.4.8",
+        "@stagewise/toolbar-next": "^0.4.8",
         "@tailwindcss/postcss": "^4.0.15",
         "@types/node": "^20.14.10",
         "@types/react": "^19.0.0",
@@ -119,6 +122,14 @@
 
     "@next/swc-win32-x64-msvc": ["@next/swc-win32-x64-msvc@15.3.4", "", { "os": "win32", "cpu": "x64" }, "sha512-4kDt31Bc9DGyYs41FTL1/kNpDeHyha2TC0j5sRRoKCyrhNcfZ/nRQkAUlF27mETwm8QyHqIjHJitfcza2Iykfg=="],
 
+    "@stagewise-plugins/react": ["@stagewise-plugins/react@0.4.8", "", { "peerDependencies": { "@stagewise/toolbar": "0.4.8" } }, "sha512-2zzk7U5kZ4xnI8rOm1HILPCMhPruQ+KSyFPzSMFRiW0jJJlKhPO5eNly+wQSrg1IUnkNoLH0yDl1HNJp42zpyQ=="],
+
+    "@stagewise/toolbar": ["@stagewise/toolbar@0.4.8", "", {}, "sha512-0ByvC4hYdHHf3rK5M+xSR9mipHYr8naNn2OgDBtv4DE0SoSCr08KfQtZ6VpsBNbOW/Mh1Y4c/AoWcyCTOc2ocA=="],
+
+    "@stagewise/toolbar-next": ["@stagewise/toolbar-next@0.4.8", "", { "dependencies": { "@stagewise/toolbar-react": "0.4.8" }, "peerDependencies": { "@types/react": ">=18.0.0", "next": ">=14.0.0", "react": ">=18.0.0" } }, "sha512-Ya35ePRkuxroUJX1Tsk+tIZaQIbP9frX5jglXS1FZ3SKDgGpVgb8E0mOmF+QjTwzEU+BhJyMV41/yzqUneBX9g=="],
+
+    "@stagewise/toolbar-react": ["@stagewise/toolbar-react@0.4.8", "", { "dependencies": { "@stagewise/toolbar": "0.4.8" }, "peerDependencies": { "@types/react": ">=18.0.0", "react": ">=18.0.0" } }, "sha512-g+r2npAfftM87+jFt4go9e0KaIAkQ/sObDKWEmBp4IJaFpsOmcfBtLiF/GIoiXRrllxMa5oQZeRrra8EFq166A=="],
+
     "@swc/counter": ["@swc/counter@0.1.3", "", {}, "sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ=="],
 
     "@swc/helpers": ["@swc/helpers@0.5.15", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g=="],
@@ -185,6 +196,8 @@
 
     "enhanced-resolve": ["enhanced-resolve@5.18.1", "", { "dependencies": { "graceful-fs": "^4.2.4", "tapable": "^2.2.0" } }, "sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg=="],
 
+    "framer-motion": ["framer-motion@12.19.1", "", { "dependencies": { "motion-dom": "^12.19.0", "motion-utils": "^12.19.0", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-nq9hwWAEKf4gzprbOZzKugLV5OVKF7zrNDY6UOVu+4D3ZgIkg8L9Jy6AMrpBM06fhbKJ6LEG6UY5+t7Eq6wNlg=="],
+
     "graceful-fs": ["graceful-fs@4.2.11", "", {}, "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="],
 
     "is-arrayish": ["is-arrayish@0.3.2", "", {}, "sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ=="],
@@ -220,6 +233,12 @@
     "minizlib": ["minizlib@3.0.2", "", { "dependencies": { "minipass": "^7.1.2" } }, "sha512-oG62iEk+CYt5Xj2YqI5Xi9xWUeZhDI8jjQmC5oThVH5JGCTgIjr7ciJDzC7MBzYd//WvR1OTmP5Q38Q8ShQtVA=="],
 
     "mkdirp": ["mkdirp@3.0.1", "", { "bin": { "mkdirp": "dist/cjs/src/bin.js" } }, "sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg=="],
+
+    "motion": ["motion@12.19.1", "", { "dependencies": { "framer-motion": "^12.19.1", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-OhoHWrht+zwDPccr2wGltJdwgz2elFBBt/sLei2g0hwICvy2hOBFUkA4Ylup3VnDgz+vUtecf694EV7bJK4XjA=="],
+
+    "motion-dom": ["motion-dom@12.19.0", "", { "dependencies": { "motion-utils": "^12.19.0" } }, "sha512-m96uqq8VbwxFLU0mtmlsIVe8NGGSdpBvBSHbnnOJQxniPaabvVdGgxSamhuDwBsRhwX7xPxdICgVJlOpzn/5bw=="],
+
+    "motion-utils": ["motion-utils@12.19.0", "", {}, "sha512-BuFTHINYmV07pdWs6lj6aI63vr2N4dg0vR+td0rtrdpWOhBzIkEklZyLcvKBoEtwSqx8Jg06vUB5RS0xDiUybw=="],
 
     "nanoid": ["nanoid@3.3.11", "", { "bin": { "nanoid": "bin/nanoid.cjs" } }, "sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w=="],
 
